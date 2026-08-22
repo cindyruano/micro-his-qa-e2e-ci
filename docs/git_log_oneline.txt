@@ -1,0 +1,10 @@
+31dc99d chore: mantener carpeta storage en el control de versiones (.gitkeep)
+d8819f3 docs: declaracion de uso de IA (herramienta, prompts, correccion aplicada y validacion humana)
+552066a docs: README, guia de despliegue final y guia de defensa oral
+3f7132e ci: pipeline de GitHub Actions (PHP 8.2/8.3) ejecutando pruebas y quality gate de demostracion
+7695793 test: suite propia (camino feliz, reglas de dominio, error de persistencia con base SQLite real) - 11/11 OK
+0c460d9 feat(presentation): consola CLI y front controller HTTP minimo, sin framework
+462653b feat(persistence): repositorios PDO/SQLite con sentencias preparadas, esquema con llaves foraneas y configuracion externa
+6b175d6 feat(application): casos de uso para planificar, ejecutar, adjuntar evidencia y evaluar el quality gate
+2003c99 feat(domain): entidades TestPlan/TestExecution/Evidence, value objects y reglas de negocio (evidencia obligatoria, transiciones de estado, quality gate)
+06c332c chore: bootstrap del proyecto (autoload PSR-4 manual sin Composer, config .env)

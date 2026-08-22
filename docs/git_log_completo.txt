@@ -1,0 +1,123 @@
+commit 31dc99d04affc6ac1381811e898f997c14ebb970
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:32 2026 +0000
+
+    chore: mantener carpeta storage en el control de versiones (.gitkeep)
+
+ storage/.gitkeep | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d8819f3a089b27eba6f5f7ba247ac166894f4cf3
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:29 2026 +0000
+
+    docs: declaracion de uso de IA (herramienta, prompts, correccion aplicada y validacion humana)
+
+ DECLARACION_IA.md | 78 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 78 insertions(+)
+
+commit 552066a105e7df99bb5e2b22c3be710af732fa78
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:29 2026 +0000
+
+    docs: README, guia de despliegue final y guia de defensa oral
+
+ README.md                 | 128 ++++++++++++++++++++++++++++++++++++++++++++++
+ docs/guia_defensa_oral.md |  65 +++++++++++++++++++++++
+ docs/guia_despliegue.md   |  60 ++++++++++++++++++++++
+ 3 files changed, 253 insertions(+)
+
+commit 3f7132efdb0b695f0c699cf530ae4269ae3f88a0
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:29 2026 +0000
+
+    ci: pipeline de GitHub Actions (PHP 8.2/8.3) ejecutando pruebas y quality gate de demostracion
+
+ .github/workflows/ci.yml | 40 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 40 insertions(+)
+
+commit 76957932e1c4968f457f7e09c08357bb3482c3b7
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:24 2026 +0000
+
+    test: suite propia (camino feliz, reglas de dominio, error de persistencia con base SQLite real) - 11/11 OK
+
+ tests/Application/HappyPathExecutionFlowTest.php   | 61 +++++++++++++++
+ tests/Domain/QualityGateEvaluatorTest.php          | 67 ++++++++++++++++
+ tests/Domain/TestExecutionDomainRulesTest.php      | 69 ++++++++++++++++
+ .../PdoRepositoryPersistenceErrorTest.php          | 77 ++++++++++++++++++
+ tests/Support/InMemoryRepositories.php             | 75 ++++++++++++++++++
+ tests/Support/TestCase.php                         | 91 ++++++++++++++++++++++
+ tests/run_tests.php                                | 52 +++++++++++++
+ 7 files changed, 492 insertions(+)
+
+commit 0c460d9a80f457aabca93d4e7cf89fee9edde8ff
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:24 2026 +0000
+
+    feat(presentation): consola CLI y front controller HTTP minimo, sin framework
+
+ bin/console.php                  |  37 +++++++++++
+ public/index.php                 |  72 +++++++++++++++++++++
+ src/Presentation/Cli/Console.php | 131 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 240 insertions(+)
+
+commit 462653bb896523d6099c4bfa68712543211c4ac2
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:24 2026 +0000
+
+    feat(persistence): repositorios PDO/SQLite con sentencias preparadas, esquema con llaves foraneas y configuracion externa
+
+ config/database.php                                | 18 +++++
+ src/Persistence/Pdo/PdoConnectionFactory.php       | 45 ++++++++++++
+ src/Persistence/Pdo/PdoEvidenceRepository.php      | 48 +++++++++++++
+ src/Persistence/Pdo/PdoTestExecutionRepository.php | 79 ++++++++++++++++++++++
+ src/Persistence/Pdo/PdoTestPlanRepository.php      | 60 ++++++++++++++++
+ src/Persistence/Schema/schema.sql                  | 33 +++++++++
+ 6 files changed, 283 insertions(+)
+
+commit 6b175d62e1090b677f05d27bac47f45efe713e0f
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:24 2026 +0000
+
+    feat(application): casos de uso para planificar, ejecutar, adjuntar evidencia y evaluar el quality gate
+
+ src/Application/UseCase/AttachEvidenceUseCase.php  | 39 +++++++++++++++++++
+ src/Application/UseCase/CreateTestPlanUseCase.php  | 27 +++++++++++++
+ .../UseCase/EvaluateQualityGateUseCase.php         | 37 ++++++++++++++++++
+ src/Application/UseCase/ListExecutionsUseCase.php  | 20 ++++++++++
+ .../UseCase/RecordExecutionResultUseCase.php       | 35 +++++++++++++++++
+ src/Application/UseCase/StartExecutionUseCase.php  | 45 ++++++++++++++++++++++
+ 6 files changed, 203 insertions(+)
+
+commit 2003c992295392aaef6311606e5cbe944a17622f
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:24 2026 +0000
+
+    feat(domain): entidades TestPlan/TestExecution/Evidence, value objects y reglas de negocio (evidencia obligatoria, transiciones de estado, quality gate)
+
+ src/Domain/Entity/Evidence.php                     |  71 ++++++++++
+ src/Domain/Entity/TestExecution.php                | 157 +++++++++++++++++++++
+ src/Domain/Entity/TestPlan.php                     |  69 +++++++++
+ src/Domain/Exception/EvidenceRequiredException.php |  21 +++
+ .../Exception/InvalidStatusTransitionException.php |  22 +++
+ src/Domain/Exception/PersistenceException.php      |  21 +++
+ .../Exception/QualityGateNotMetException.php       |  30 ++++
+ .../Repository/EvidenceRepositoryInterface.php     |  15 ++
+ .../TestExecutionRepositoryInterface.php           |  17 +++
+ .../Repository/TestPlanRepositoryInterface.php     |  14 ++
+ src/Domain/Service/QualityGateEvaluator.php        |  51 +++++++
+ src/Domain/ValueObject/Environment.php             |  44 ++++++
+ src/Domain/ValueObject/ExecutionStatus.php         |  42 ++++++
+ 13 files changed, 574 insertions(+)
+
+commit 06c332caf1cb1593caea7c48186a913177a1718b
+Author: Cindy Maytté Ruano Calderón <cindyruano@estudiante.enrique-novella.edu.gt>
+Date:   Sat Aug 22 03:38:19 2026 +0000
+
+    chore: bootstrap del proyecto (autoload PSR-4 manual sin Composer, config .env)
+
+ .env.example  |  5 +++++
+ .gitignore    |  4 ++++
+ bootstrap.php | 51 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 60 insertions(+)

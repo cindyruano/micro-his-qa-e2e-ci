@@ -1,0 +1,19 @@
+==============================================
+ Micro-HIS QA / E2E / CI - Suite de pruebas
+==============================================
+
+[OK]   MicroHis\Tests\Domain\TestExecutionDomainRulesTest::testNoSePuedeFinalizarSinEvidencia (1 asserts)
+[OK]   MicroHis\Tests\Domain\TestExecutionDomainRulesTest::testSePuedeFinalizarCuandoHayEvidencia (2 asserts)
+[OK]   MicroHis\Tests\Domain\TestExecutionDomainRulesTest::testNoPermiteSaltarDePlanificadaAAprobada (1 asserts)
+[OK]   MicroHis\Tests\Domain\TestExecutionDomainRulesTest::testNoPermiteReiniciarUnaEjecucionYaFinalizada (1 asserts)
+[OK]   MicroHis\Tests\Domain\QualityGateEvaluatorTest::testAprueba100PorCientoDeExito (1 asserts)
+[OK]   MicroHis\Tests\Domain\QualityGateEvaluatorTest::testRechazaCuandoLaTasaEsMenorAlUmbral (1 asserts)
+[OK]   MicroHis\Tests\Domain\QualityGateEvaluatorTest::testRechazaCuandoNoHayEjecuciones (1 asserts)
+[OK]   MicroHis\Tests\Application\HappyPathExecutionFlowTest::testFlujoCompletoDePlanificacionEjecucionYQualityGate (3 asserts)
+[OK]   MicroHis\Tests\Persistence\PdoRepositoryPersistenceErrorTest::testGuardarEjecucionConPlanInexistenteLanzaErrorDePersistencia (1 asserts)
+[OK]   MicroHis\Tests\Persistence\PdoRepositoryPersistenceErrorTest::testGuardarYRecuperarPlanFuncionaConBaseDePruebaReal (2 asserts)
+[OK]   MicroHis\Tests\Persistence\PdoRepositoryPersistenceErrorTest::testGuardarEjecucionValidaSiFunciona (2 asserts)
+
+----------------------------------------------
+Total: 11 | Aprobadas: 11 | Fallidas: 0
+----------------------------------------------
