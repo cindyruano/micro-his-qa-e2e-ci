@@ -1,0 +1,40 @@
+name: CI - Micro-HIS QA/E2E
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  tests:
+    name: Pruebas automatizadas (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ["8.2", "8.3"]
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: pdo, pdo_sqlite, sqlite3
+          coverage: none
+
+      - name: Preparar entorno
+        run: cp .env.example .env
+
+      - name: Ejecutar suite de pruebas (camino feliz, reglas de dominio, error de persistencia)
+        run: php tests/run_tests.php
+
+      - name: Quality gate de demostración (plan de ejemplo vía CLI)
+        run: |
+          php bin/console.php plan:create CI-DEMO 1.0.0-ci "Demostracion de pipeline" 0.80
+          php bin/console.php execution:start CI-EXEC-1 CI-DEMO "Escenario de humo" QA
+          php bin/console.php evidence:attach CI-EVID-1 CI-EXEC-1 REPORT ./storage/ci-evidencia.json
+          php bin/console.php execution:finish CI-EXEC-1 PASSED
+          php bin/console.php gate:evaluate CI-DEMO
