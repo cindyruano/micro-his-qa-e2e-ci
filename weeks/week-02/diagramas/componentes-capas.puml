@@ -1,0 +1,11 @@
+@startuml
+package Presentation { [QualityGateCommand] }
+package Application { [RunQualityGate] }
+package Domain { [QualityGateRun] [QualityGateRunRepository] }
+package Infrastructure { [EloquentRepository] [PostgreSQL] }
+[QualityGateCommand] --> [RunQualityGate]
+[RunQualityGate] --> [QualityGateRun]
+[RunQualityGate] --> [QualityGateRunRepository]
+[EloquentRepository] ..|> [QualityGateRunRepository]
+[EloquentRepository] --> [PostgreSQL]
+@enduml

@@ -1,0 +1,34 @@
+@startuml alcance-contexto
+left to right direction
+skinparam packageStyle rectangle
+
+title Contexto y alcance - Sistema Hospitalario Integrado ASII-25
+
+rectangle "Fuera del alcance operativo\n(Dependencias externas)" as external #FFF7ED {
+    rectangle "Proveedor de correo / SMS / Push\n(opcional, sandbox)" as messaging
+    rectangle "Observabilidad\n(logs y métricas)" as observability
+    rectangle "Plataforma CI/CD\n(GitHub Actions u otra)" as cicd
+}
+
+rectangle "Aplicación Laravel HIS\n(Dentro del alcance)" as app #F8FAFC {
+    rectangle "Capa HTTP\nroutes/api.php" as http #DBEAFE
+    rectangle "TenantMiddleware\nJWT / Spatie Permission" as security #DCFCE7
+    rectangle "Dominio clínico\nPatients / Admissions / EMR / Laboratory" as domain #FEF3C7
+    database "Base de datos\ntenants, users, patients, admissions,\nmedical_records, lab_orders..." as database #F3F4F6
+}
+
+rectangle "Pruebas automatizadas\nPHPUnit + Laravel TestCase + E2E" as tests #EDE9FE
+
+http --> security : Resuelve tenant y auth
+security --> domain : Autoriza por rol y tenant
+domain --> database : Eloquent / transacciones
+domain ..> messaging : Eventos y alertas
+app ..> observability : Logs y evidencias
+cicd --> tests : Ejecuta quality gates
+tests --> app : HTTP / integración
+
+note bottom of app
+Implementado: registro, login, me, refresh y logout.
+Pendiente: controladores y rutas clínicas.
+end note
+@enduml

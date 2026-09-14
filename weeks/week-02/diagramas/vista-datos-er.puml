@@ -1,0 +1,27 @@
+@startuml
+entity qa_runs {
+  * id : uuid <<PK>>
+  --
+  commit_sha : varchar
+  environment : varchar
+  status : varchar
+}
+entity qa_gate_results {
+  * id : bigint <<PK>>
+  --
+  qa_run_id : uuid <<FK local>>
+  control : varchar
+  passed : boolean
+}
+entity qa_evidence {
+  * id : bigint <<PK>>
+  --
+  qa_run_id : uuid <<FK local>>
+  kind : varchar
+  location : varchar
+}
+qa_runs ||--o{ qa_gate_results
+qa_runs ||--o{ qa_evidence
+note "Sin FK ni consultas entre CENTRAL/HOSPITAL; tenant es referencia lógica." as N
+N .. qa_runs
+@enduml

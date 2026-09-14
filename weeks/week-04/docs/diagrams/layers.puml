@@ -1,0 +1,29 @@
+@startuml
+skinparam componentStyle rectangle
+package Presentation {
+  [QualityGateRequest]
+  [QualityGateController]
+  [JsonView]
+}
+package Application {
+  [RunQualityGate]
+  [GetLatestQualityGate]
+}
+package Domain {
+  [QualityGateRun]
+  [TestPlan]
+  interface QualityGateRepository
+}
+package Persistence {
+  [PdoQualityGateRepository]
+  [InMemoryQualityGateRepository]
+  [PdoEvidenceStore]
+}
+[QualityGateRequest] --> [QualityGateController]
+[QualityGateController] --> [RunQualityGate]
+[QualityGateController] --> [GetLatestQualityGate]
+[RunQualityGate] --> QualityGateRepository
+[GetLatestQualityGate] --> QualityGateRepository
+[PdoQualityGateRepository] ..|> QualityGateRepository
+[InMemoryQualityGateRepository] ..|> QualityGateRepository
+@enduml

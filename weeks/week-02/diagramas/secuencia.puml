@@ -1,0 +1,15 @@
+@startuml
+actor CI
+participant "QualityGateCommand" as command
+participant "RunQualityGate" as app
+participant "Repository" as repo
+database "PostgreSQL" as db
+CI -> command: commit, environment
+command -> app: execute(controls)
+app -> repo: save(run)
+repo -> db: transaction
+db --> repo: persisted
+repo --> app: void
+app --> command: run
+command --> CI: exit 0 or 1
+@enduml

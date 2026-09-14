@@ -1,0 +1,44 @@
+@startuml secuencia
+autonumber
+title CU-01 - Login multi-tenant con JWT
+
+actor "Usuario operativo" as user
+participant "Cliente Web / E2E" as client
+participant "TenantMiddleware" as tenant
+participant "AuthController" as auth
+database "users + tenants" as db
+participant "JWTAuth" as jwt
+
+user -> client : Introduce email y contraseña
+client -> tenant : POST /api/auth/login\nX-Tenant-ID + credenciales
+activate tenant
+
+alt Cabecera ausente
+	tenant --> client : 400 X-Tenant-ID obligatoria
+else Tenant inexistente
+	tenant --> client : 404 Tenant no encontrado
+else Tenant válido
+	tenant -> auth : Request con tenant resuelto
+	activate auth
+	auth -> db : Buscar usuario por tenant_id y email
+	activate db
+	db --> auth : Usuario o null
+	deactivate db
+
+	alt Credenciales inválidas
+		auth --> client : 422 error de validación
+	else Credenciales válidas
+		auth -> jwt : JWTAuth::fromUser(user)
+		jwt --> auth : access_token
+		auth --> client : 200 JSON\naccess_token + user + roles + tenant
+	end
+	deactivate auth
+end
+deactivate tenant
+
+client -> tenant : GET /api/auth/me\nAuthorization: Bearer token
+tenant -> auth : Request autenticada
+auth -> jwt : auth('api')->user()
+jwt --> auth : Usuario autenticado
+auth --> client : 200 JSON user + roles + tenant
+@enduml

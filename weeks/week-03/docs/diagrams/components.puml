@@ -1,0 +1,14 @@
+@startuml
+skinparam componentStyle rectangle
+actor "Runner CI / QA" as runner
+component "Presentation\nCLI / HTTP" as presentation
+component "Application\nRunQualityGate" as application
+component "Domain\nTestPlan + QualityGateRun" as domain
+database "Persistence\nPDO + SQLite/PostgreSQL" as persistence
+component "E2E runner\n(test double or browser adapter)" as e2e
+runner --> presentation
+presentation --> application
+application --> domain
+application --> e2e
+application --> persistence
+@enduml

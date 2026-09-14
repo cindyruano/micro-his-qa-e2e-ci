@@ -1,0 +1,20 @@
+@startuml
+class QualityGateRun {
+  +id: string
+  +commit: string
+  +environment: string
+  +controls: map
+  +status: string
+  +passes(): bool
+}
+interface QualityGateRunRepository {
+  +save(run): void
+}
+class RunQualityGate {
+  +execute(commit, environment, controls): QualityGateRun
+}
+class EloquentQualityGateRunRepository
+QualityGateRunRepository <|.. EloquentQualityGateRunRepository
+RunQualityGate --> QualityGateRunRepository
+RunQualityGate --> QualityGateRun
+@enduml
