@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="998px" height="795px" viewBox="0 0 998 795" style="background-color:#ffffff;">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #000000; font-size: 14px; text-anchor: middle; }
+    .title { font-weight: bold; }
+    .uc { fill: #F1F1F1; stroke: #181818; stroke-width: 0.5px; }
+    .line { fill: none; stroke: #181818; stroke-width: 1px; }
+    .dash { stroke-dasharray: 7,7; }
+    .subtext { font-size: 13px; text-anchor: start; }
+  </style>
+
+  <defs>
+    <g id="monigote">
+      <ellipse cx="0" cy="-35" rx="8" ry="8" fill="#F1F1F1" stroke="#181818" stroke-width="0.5"/>
+      <path d="M0,-27 V0 M-13,-19 H13 M0,0 L-13,15 M0,0 L13,15" fill="none" stroke="#181818" stroke-width="0.5"/>
+    </g>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="499" y="24.5" class="title">Casos de uso críticos - Sistema Hospitalario Integrado</text>
+
+  <g id="cluster_Sistema_Laravel_HIS">
+    <rect x="434" y="191.1" width="558" height="598" rx="2.5" ry="2.5" fill="none" stroke="#181818" stroke-width="1"/>
+    <text x="713" y="207.6" class="title">Sistema Laravel HIS</text>
+  </g>
+
+  <g id="elem_UC01">
+    <ellipse cx="568.3" cy="384" rx="92.8" ry="40.3" class="uc"/>
+    <text x="568.3" y="370">CU-01</text>
+    <text x="568.3" y="387.6">Autenticar usuario</text>
+    <text x="568.3" y="405.3">y gestionar sesión</text>
+  </g>
+
+  <g id="elem_UC02">
+    <ellipse cx="568.5" cy="732" rx="93.5" ry="40.3" class="uc"/>
+    <text x="568.5" y="718">CU-02</text>
+    <text x="568.5" y="735.6">Registrar paciente</text>
+    <text x="568.5" y="753.3">y admisión</text>
+  </g>
+
+  <g id="elem_UC03">
+    <ellipse cx="568.6" cy="268" rx="107.6" ry="40.3" class="uc"/>
+    <text x="568.6" y="254">CU-03</text>
+    <text x="568.6" y="271.6">Consultar y actualizar</text>
+    <text x="568.6" y="289.3">expediente clínico</text>
+  </g>
+
+  <g id="elem_UC04">
+    <ellipse cx="568.2" cy="500" rx="118.2" ry="40.3" class="uc"/>
+    <text x="568.2" y="486">CU-04</text>
+    <text x="568.2" y="503.6">Gestionar orden y</text>
+    <text x="568.2" y="521.3">resultado de laboratorio</text>
+  </g>
+
+  <g id="elem_UC05">
+    <ellipse cx="568.4" cy="616" rx="103.4" ry="40.3" class="uc"/>
+    <text x="568.4" y="602">CU-05</text>
+    <text x="568.4" y="619.6">Autorizar acceso por</text>
+    <text x="568.4" y="637.3">rol y tenant</text>
+  </g>
+
+  <g id="elem_Tenant">
+    <ellipse cx="889.8" cy="413" rx="79.3" ry="27.9" class="uc"/>
+    <text x="889.8" y="407.9">Verificar tenant</text>
+    <text x="889.8" y="425.5">X-Tenant-ID</text>
+  </g>
+
+  <g id="elem_Permission">
+    <ellipse cx="890.1" cy="571" rx="86.1" ry="19.6" class="uc"/>
+    <text x="890.1" y="575">Validar rol y permiso</text>
+  </g>
+
+  <g id="elem_user">
+    <use href="#monigote" x="264.5" y="179.6"/>
+    <text x="264.5" y="210.6">Usuario operativo</text>
+  </g>
+
+  <g id="elem_receptionist">
+    <use href="#monigote" x="77" y="751.6"/>
+    <text x="77" y="782.6">Recepcionista</text>
+  </g>
+
+  <g id="elem_doctor">
+    <use href="#monigote" x="77" y="313.6"/>
+    <text x="77" y="344.6">Médico</text>
+  </g>
+
+  <g id="elem_nurse">
+    <use href="#monigote" x="77" y="87.6"/>
+    <text x="77" y="118.6">Enfermera</text>
+  </g>
+
+  <g id="elem_lab">
+    <use href="#monigote" x="77" y="200.6"/>
+    <text x="77" y="231.6">Técnico de laboratorio</text>
+  </g>
+
+  <g id="elem_admin">
+    <use href="#monigote" x="264.5" y="363.6"/>
+    <text x="264.5" y="394.6">Administrador</text>
+  </g>
+
+  <g id="elem_ci">
+    <use href="#monigote" x="264.5" y="653.6"/>
+    <text x="264.5" y="684.6">Runner CI/CD</text>
+  </g>
+
+  <g id="relaciones">
+    <path d="M299.54,214.36 C330,247.6 377.26,294.73 426,326.1 C446.76,339.46 465.53,348.56 488.13,357.55" class="line"/>
+    <polygon points="493.71,359.76 486.82,352.72 489.06,357.92 483.86,360.15" fill="#181818"/>
+
+    <path d="M320.21,172.03 C402.05,169.1 560.29,170.0 687,210.1 C729.73,223.62 740.5,231.32 774,261.1 C815.92,298.36 849.59,347.82 869.69,380.43" class="line"/>
+    <polygon points="872.84,385.53 871.52,375.77 870.21,381.28 864.71,379.97" fill="#181818"/>
+
+    <!-- Herencias -->
+    <path d="M87.86,707.91 C107.87,629.78 155.9,449.47 209,302.1 C219.78,272.19 226.59,255.63 237.8,230.78" class="line"/>
+    <polygon points="245.21,214.37 232.33,228.31 243.27,233.25" fill="none" stroke="#181818"/>
+
+    <path d="M99.64,293.47 C126.31,274.2 157.97,251.34 194.55,224.91" class="line"/>
+    <polygon points="209.15,214.36 191.04,220.04 198.07,229.77" fill="none" stroke="#181818"/>
+
+    <path d="M110.31,99.13 C137.4,112.56 160.55,124.05 192.55,139.92" class="line"/>
+    <polygon points="208.68,147.91 195.22,134.54 189.88,145.29" fill="none" stroke="#181818"/>
+
+    <path d="M148.13,188.16 C168.24,185.88 171.97,185.47 191,183.31" class="line"/>
+    <polygon points="208.89,181.28 190.32,177.35 191.68,189.28" fill="none" stroke="#181818"/>
+
+    <path d="M121.62,755.08 C186.46,765.78 312.02,782.02 418,769.1 C442.02,766.17 461.92,762.16 485.14,756.3" class="line"/>
+    <polygon points="490.96,754.83 481.25,753.16 486.11,756.06 483.21,760.92" fill="#181818"/>
+
+    <path d="M99.66,307.29 C162.11,302.05 339.53,287.2 457.29,277.34" class="line"/>
+    <polygon points="463.27,276.83 453.96,273.6 458.28,277.25 454.63,281.57" fill="#181818"/>
+
+    <path d="M110.3,83.7 C157.65,85.48 248.07,92.31 320,118.1 C395.44,145.15 468.11,193.17 515.83,228.21" class="line"/>
+    <polygon points="520.67,231.76 515.78,223.21 516.63,228.81 511.04,229.66" fill="#181818"/>
+
+    <path d="M133.21,235.29 C138.63,240.54 143.71,246.18 148,252.1 C193.39,314.73 150.99,363.94 209,415.1 C245.64,447.41 360.26,470.52 451.54,484.63" class="line"/>
+    <polygon points="457.47,485.54 449.18,480.22 452.52,484.78 447.96,488.12" fill="#181818"/>
+
+    <path d="M92.65,348.15 C111.78,392.87 149.97,463.95 209,495.1 C249.94,516.71 358.35,515.25 447.02,509.94" class="line"/>
+    <polygon points="453.01,509.58 443.78,506.13 448.01,509.88 444.26,514.12" fill="#181818"/>
+    <text x="221.5" y="491.6" class="subtext">Ordena / valida</text>
+
+    <path d="M308.13,362.63 C351.78,366.24 415,371.48 470.95,376.11" class="line"/>
+    <polygon points="476.93,376.6 468.29,371.88 471.94,376.19 467.63,379.85" fill="#181818"/>
+
+    <path d="M308.13,388.14 C343.6,414.75 392.29,457.47 418,507.1 C428.55,527.47 411.78,540.1 426,558.1 C439.41,575.08 453.11,584.76 473.07,593.3" class="line"/>
+    <polygon points="478.59,595.66 471.88,588.45 473.99,593.7 468.74,595.8" fill="#181818"/>
+
+    <path d="M308.85,639.13 C349.06,628.93 404.66,612.07 418,594.1 C438.16,566.94 406.42,469.68 426,442.1 C439.83,422.61 455.82,411.83 478.01,403.22" class="line"/>
+    <polygon points="483.61,401.05 473.77,400.58 478.94,402.86 476.66,408.04" fill="#181818"/>
+    <text x="363.5" y="590.6" class="subtext">Prueba</text>
+
+    <path d="M287.46,688.11 C302.07,709.85 323.45,734.94 350,747.1 C393.79,767.16 441.89,764.76 485.13,756.08" class="line"/>
+    <polygon points="491.02,754.89 481.4,752.74 486.11,755.88 482.98,760.59" fill="#181818"/>
+    <text x="351" y="743.6" class="subtext">Suite futura</text>
+
+    <path d="M292.88,609.72 C302,595.9 311.88,580.08 320,565.1 C375.35,462.93 342.67,407.09 426,326.1 C441.23,311.3 455.24,302.45 474.9,294.03" class="line"/>
+    <polygon points="480.42,291.66 470.57,291.53 475.82,293.63 473.72,298.88" fill="#181818"/>
+    <text x="351" y="332.6" class="subtext">Suite futura</text>
+
+    <path d="M308.61,664.41 C342.68,673.47 389.14,678.61 418,652.1 C433.44,637.92 413.59,575.0 426,558.1 C437.31,542.69 448.04,533.96 465.4,525.64" class="line"/>
+    <polygon points="470.82,523.04 460.97,523.33 466.31,525.21 464.43,530.54" fill="#181818"/>
+    <text x="351" y="648.6" class="subtext">Suite futura</text>
+
+    <path d="M308.46,688.15 C341.11,712.97 385.75,735.97 418,710.1 C430.79,699.84 415.44,686.63 426,674.1 C440.03,657.45 454.06,647.87 474.17,639.34" class="line"/>
+    <polygon points="479.7,636.99 469.85,636.83 475.1,638.95 472.97,644.19" fill="#181818"/>
+    <text x="351" y="706.6" class="subtext">Suite futura</text>
+    <path d="M659.77,392.29 C708.03,396.67 760.81,401.47 806.75,405.64" class="line dash"/>
+    <polygon points="812.73,406.18 804.12,401.39 807.75,405.73 803.4,409.35" fill="#181818"/>
+    <text x="718" y="394.6" class="subtext">«include»</text>
+
+    <path d="M655.41,716.99 C696.68,705.51 743.64,685.55 774,651.1 C809.49,610.82 781.54,582.86 804,534.1 C820.11,499.12 842.73,468.24 861.84,444.82" class="line dash"/>
+    <polygon points="865.64,440.17 856.85,444.62 862.47,444.05 863.04,449.68" fill="#181818"/>
+    <text x="718" y="647.6" class="subtext">«include»</text>
+
+    <path d="M673.77,276.6 C707.08,282.25 743.25,291.61 774,307.1 C811.83,326.15 842.35,356.8 863.47,381.39" class="line dash"/>
+    <polygon points="867.38,385.94 864.55,376.51 864.12,382.15 858.48,381.72" fill="#181818"/>
+    <text x="718" y="283.6" class="subtext">«include»</text>
+
+    <path d="M661.91,474.94 C714.81,460.53 773.96,444.43 820.83,431.67" class="line dash"/>
+    <polygon points="826.62,430.09 816.88,428.6 821.79,431.41 818.98,436.32" fill="#181818"/>
+    <text x="718" y="443.6" class="subtext">«include»</text>
+
+    <path d="M668.41,605.32 C703.88,598.01 742.78,585.72 774,565.1 C786.7,556.71 837.08,486.76 866.37,445.32" class="line dash"/>
+    <polygon points="869.84,440.42 861.37,445.47 866.95,444.51 867.91,450.08" fill="#181818"/>
+    <text x="718" y="561.6" class="subtext">«include»</text>
+
+    <path d="M651.8,750.69 C690.87,755.3 736.99,754.35 774,735.1 C833.39,704.21 866.36,632.66 880.12,596.28" class="line dash"/>
+    <polygon points="882.25,590.66 875.32,597.67 880.48,595.34 882.8,600.5" fill="#181818"/>
+    <text x="718" y="731.6" class="subtext">«include»</text>
+
+    <path d="M641.68,297.8 C692.72,320.06 755.27,350.31 774,372.1 C800.39,402.8 784.94,422.39 804,458.1 C823.07,493.83 848.92,525.93 867.69,547.44" class="line dash"/>
+    <polygon points="871.64,551.96 868.73,542.55 868.35,548.2 862.7,547.81" fill="#181818"/>
+    <text x="718" y="332.6" class="subtext">«include»</text>
+
+    <path d="M674.41,518.38 C706.49,524.43 741.8,531.56 774,539.1 C794.78,543.96 811.68,548.46 831.36,554.05" class="line dash"/>
+    <polygon points="837.14,555.68 829.57,549.38 832.33,554.32 827.38,557.08" fill="#181818"/>
+    <text x="718" y="523.6" class="subtext">«include»</text>
+
+    <path d="M669.09,625.96 C702.69,627.07 740.23,625.87 774,619.1 C802.85,613.32 828.12,602.81 850.52,591.71" class="line dash"/>
+    <polygon points="855.9,589.04 846.05,589.46 851.41,591.26 849.61,596.62" fill="#181818"/>
+    <text x="718" y="615.6" class="subtext">«include»</text>
+  </g>
+</svg>

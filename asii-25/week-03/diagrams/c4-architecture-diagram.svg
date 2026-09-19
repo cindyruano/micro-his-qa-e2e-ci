@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" style="background-color: #ffffff;">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202a; }
+    .title { font-size: 24px; font-weight: bold; }
+    .layer { stroke: #34495e; stroke-width: 2; }
+    .presentation { fill: #eaf2f8; }
+    .application { fill: #e8f8f5; }
+    .domain { fill: #fef5e7; }
+    .persistence { fill: #f5eef8; }
+    .external { fill: #f8f9f9; stroke: #7b7d7d; stroke-width: 2; }
+    .component { fill: #ffffff; stroke: #566573; stroke-width: 1.5; }
+    .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .arrow-text { font-size: 12px; fill: #566573; font-weight: bold; }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#34495e"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="600" y="38" text-anchor="middle" class="title">Micro-HIS QA - Arquitectura C4</text>
+
+  <rect class="external" x="30" y="95" width="180" height="110" rx="8"/>
+  <text x="120" y="130" text-anchor="middle" font-size="16" font-weight="bold">Developer / QA</text>
+  <text x="120" y="158" text-anchor="middle" font-size="13">PR y consulta de</text>
+  <text x="120" y="178" text-anchor="middle" font-size="13">ejecuciones</text>
+
+  <rect class="external" x="990" y="95" width="180" height="110" rx="8"/>
+  <text x="1080" y="130" text-anchor="middle" font-size="16" font-weight="bold">CI / E2E Runner</text>
+  <text x="1080" y="158" text-anchor="middle" font-size="13">Suites y artefactos</text>
+  <text x="1080" y="178" text-anchor="middle" font-size="13">externos</text>
+
+  <rect class="layer presentation" x="250" y="75" width="700" height="115" rx="10"/>
+  <text x="270" y="103" font-size="17" font-weight="bold">Presentation Layer</text>
+  <rect class="component" x="300" y="125" width="220" height="42" rx="5"/>
+  <text x="410" y="151" text-anchor="middle" font-size="14">ExecutionController</text>
+  <rect class="component" x="650" y="125" width="220" height="42" rx="5"/>
+  <text x="760" y="151" text-anchor="middle" font-size="14">HTTP Router / JSON</text>
+
+  <rect class="layer application" x="250" y="220" width="700" height="115" rx="10"/>
+  <text x="270" y="248" font-size="17" font-weight="bold">Application Layer</text>
+  <rect class="component" x="290" y="270" width="190" height="42" rx="5"/>
+  <text x="385" y="296" text-anchor="middle" font-size="13">ExecuteTestSuiteUseCase</text>
+  <rect class="component" x="510" y="270" width="190" height="42" rx="5"/>
+  <text x="605" y="296" text-anchor="middle" font-size="13">EvaluateQualityGate</text>
+  <rect class="component" x="730" y="270" width="170" height="42" rx="5"/>
+  <text x="815" y="296" text-anchor="middle" font-size="13">Ports / Interfaces</text>
+
+  <rect class="layer domain" x="250" y="365" width="700" height="115" rx="10"/>
+  <text x="270" y="393" font-size="17" font-weight="bold">Domain Layer</text>
+  <rect class="component" x="300" y="415" width="180" height="42" rx="5"/>
+  <text x="390" y="441" text-anchor="middle" font-size="13">TestExecution</text>
+  <rect class="component" x="510" y="415" width="190" height="42" rx="5"/>
+  <text x="605" y="441" text-anchor="middle" font-size="13">QualityGatePolicy</text>
+  <rect class="component" x="730" y="415" width="170" height="42" rx="5"/>
+  <text x="815" y="441" text-anchor="middle" font-size="13">Value Objects</text>
+
+  <rect class="layer persistence" x="250" y="510" width="700" height="115" rx="10"/>
+  <text x="270" y="538" font-size="17" font-weight="bold">Persistence Layer</text>
+  <rect class="component" x="290" y="560" width="190" height="42" rx="5"/>
+  <text x="385" y="586" text-anchor="middle" font-size="13">PdoRepository</text>
+  <rect class="component" x="510" y="560" width="190" height="42" rx="5"/>
+  <text x="605" y="586" text-anchor="middle" font-size="13">PDO + prepare()</text>
+  <rect class="component" x="730" y="560" width="170" height="42" rx="5"/>
+  <text x="815" y="586" text-anchor="middle" font-size="13">Evidence Storage</text>
+
+  <rect class="external" x="480" y="675" width="240" height="55" rx="8"/>
+  <text x="600" y="708" text-anchor="middle" font-size="15" font-weight="bold">micro-his.sqlite / Filesystem / S3</text>
+
+  <path class="arrow" d="M210 150 H300"/>
+  <path class="arrow" d="M900 150 H990"/>
+  <path class="arrow" d="M600 190 V220"/>
+  <path class="arrow" d="M600 335 V365"/>
+  <path class="arrow" d="M600 480 V510"/>
+  <path class="arrow" d="M600 625 V675"/>
+
+  <text x="600" y="208" text-anchor="middle" class="arrow-text">commands / responses</text>
+  <text x="600" y="353" text-anchor="middle" class="arrow-text">políticas y entidades</text>
+  <text x="600" y="498" text-anchor="middle" class="arrow-text">puertos implementados</text>
+</svg>

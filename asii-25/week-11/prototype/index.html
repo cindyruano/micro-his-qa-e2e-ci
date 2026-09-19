@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prototipo navegable del flujo Micro-HIS QA">
+  <title>Micro-HIS QA | Prototipo Semana 11</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#dashboard" aria-label="Micro-HIS QA, ir al dashboard">Micro-HIS <strong>QA</strong></a>
+    <div class="top-actions">
+      <label class="role-select">Rol
+        <select id="roleSelect" aria-label="Seleccionar rol">
+          <option>QA Lead</option><option>Developer</option><option>CI Runner</option>
+        </select>
+      </label>
+      <span class="tenant">tenant-7f2a••</span>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div><p class="eyebrow">Prototipo navegable · Semana 11</p><h1 id="pageTitle">Ejecuciones que se pueden defender</h1><p class="hero-copy">Planifica una suite, observa el Gate y conserva evidencia verificable.</p></div>
+      <div class="scenario-switch" role="group" aria-label="Escenario del prototipo"><button class="scenario active" data-scenario="happy">Camino feliz</button><button class="scenario" data-scenario="error">Error crítico</button></div>
+    </section>
+
+    <div id="liveMessage" class="sr-only" aria-live="polite"></div>
+    <div id="toast" class="toast" role="status" hidden></div>
+
+    <section class="progress" aria-label="Progreso del flujo">
+      <div class="progress-step active" data-step="1"><span>01</span><b>Planificar</b></div><div class="progress-line"></div><div class="progress-step" data-step="2"><span>02</span><b>Ejecutar</b></div><div class="progress-line"></div><div class="progress-step" data-step="3"><span>03</span><b>Gate</b></div><div class="progress-line"></div><div class="progress-step" data-step="4"><span>04</span><b>Desplegar</b></div>
+    </section>
+
+    <section id="dashboard" class="view active-view" aria-labelledby="dashboardTitle">
+      <div class="section-heading"><div><p class="eyebrow">01 · Control de calidad</p><h2 id="dashboardTitle">Dashboard de runs</h2></div><button class="button primary" id="planButton">+ Planificar ejecución</button></div>
+      <div class="metric-grid"><article class="metric"><span>Runs activos</span><strong>02</strong><small>por este tenant</small></article><article class="metric"><span>Quality Gate</span><strong class="green">PASS</strong><small>última versión</small></article><article class="metric"><span>p95 API</span><strong>1.42s</strong><small>objetivo &lt; 2s</small></article></div>
+      <div class="run-list" id="runList" aria-label="Lista de ejecuciones"></div>
+    </section>
+
+    <section id="plan" class="view" aria-labelledby="planTitle">
+      <div class="section-heading"><div><p class="eyebrow">02 · Preparación</p><h2 id="planTitle">Planificar ejecución</h2></div><button class="icon-button" data-back aria-label="Volver al dashboard">×</button></div>
+      <form id="planForm" class="form-panel"><div class="form-note"><span class="status-dot"></span><span>Tenant autorizado: <strong>tenant-7f2a••</strong></span><button type="button" class="help" title="El tenant proviene de tu sesión y no se puede editar">?</button></div><label>Commit de la versión<input id="commit" value="a1b2c3d4e5f6" minlength="7" required aria-describedby="commitHelp"><small id="commitHelp">7 a 64 caracteres, sin espacios.</small></label><label>Suites E2E<select id="suite"><option>Auth + Quality Gate</option><option>Suite crítica completa</option><option>Regresión multi-tenant</option></select></label><div class="two-fields"><label>Cobertura mínima<input type="number" value="80" min="0" max="100">%</label><label>p95 máximo<input type="number" value="2" min="0.1" step="0.1">s</label></div><label class="checkline"><input type="checkbox" checked> Generar evidencia comprimida y hash SHA-256</label><button class="button primary full" type="submit">Validar y crear run</button></form>
+    </section>
+
+    <section id="run" class="view" aria-labelledby="runTitle"><div class="section-heading"><div><p class="eyebrow">03 · Ejecución</p><h2 id="runTitle">Run <span class="run-id">8e12••</span></h2></div><span id="runState" class="badge blue">RUNNING</span></div><div class="execution-card"><div class="runner-visual"><div class="spinner" aria-hidden="true"></div><strong id="runHeadline">Runner ejecutando suites E2E</strong><span id="runDetail">Auth · Multi-tenant · Evidence</span></div><div class="log-box" aria-label="Log de ejecución"><p><b>runner</b> suite auth iniciada</p><p><b>tenant</b> contexto validado</p><p><b>gate</b> esperando resultados...</p></div><button class="button secondary full" id="advanceButton">Avanzar simulación</button></div></section>
+
+    <section id="gate" class="view" aria-labelledby="gateTitle"><div class="section-heading"><div><p class="eyebrow">04 · Decisión</p><h2 id="gateTitle">Quality Gate</h2></div><span id="gateBadge" class="badge green">PASS</span></div><div class="gate-panel"><div class="gate-result" id="gateResult"><span class="result-mark">✓</span><div><strong>Versión aprobada</strong><p id="gateMessage">Todas las métricas cumplen los umbrales.</p></div></div><div class="gate-metrics"><div><span>Cobertura</span><strong id="coverage">92%</strong><small>mín. 80%</small></div><div><span>Fallos críticos</span><strong id="critical">0</strong><small>objetivo 0</small></div><div><span>p95 evaluación</span><strong id="p95">1.42s</strong><small>máx. 2s</small></div></div><div class="evidence-state"><span class="status-dot"></span><span>Evidencia: <b id="evidenceState">READY</b></span><code id="hash">SHA-256 9f2a...c81e</code></div><div class="action-row"><button class="button primary" id="deployButton">Aprobar despliegue</button><button class="button secondary" id="retryButton">Reintentar</button></div></div></section>
+
+    <section id="deploy" class="view" aria-labelledby="deployTitle"><div class="success-panel"><span class="result-mark">✓</span><p class="eyebrow">Despliegue autorizado</p><h2 id="deployTitle">La versión puede avanzar</h2><p>El Quality Gate, el tenant y la evidencia fueron verificados. El PR queda listo para merge.</p><div class="audit-line"><span>Commit</span><b>a1b2c3d4</b><span>Correlation</span><b>c-91••</b></div><button class="button primary" data-dashboard>Volver al dashboard</button></div></section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navegación principal"><a href="#dashboard" class="active">Runs</a><a href="#plan">Planificar</a><a href="#gate">Gate</a></nav>
+  <script src="app.js"></script>
+</body>
+</html>
