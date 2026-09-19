@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" style="background-color: #ffffff;">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202a; }
+    .head { fill: #eaf2f8; stroke: #2874a6; stroke-width: 2; }
+    .life { stroke: #85929e; stroke-width: 1.5; stroke-dasharray: 6 5; }
+    .msg { stroke: #34495e; stroke-width: 1.5; marker-end: url(#arrow); }
+    .ret { stroke: #7b7d7d; stroke-width: 1.3; stroke-dasharray: 5 4; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#34495e"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="550" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#17202a">ASII-25 - Secuencia de ejecución y Quality Gate</text>
+
+  <g font-size="14" text-anchor="middle" font-weight="bold">
+    <rect class="head" x="30" y="60" width="120" height="42" rx="6"/><text x="90" y="86">Developer</text>
+    <rect class="head" x="185" y="60" width="120" height="42" rx="6"/><text x="245" y="86">GitHub / PR</text>
+    <rect class="head" x="340" y="60" width="120" height="42" rx="6"/><text x="400" y="86">CI Pipeline</text>
+    <rect class="head" x="495" y="60" width="120" height="42" rx="6"/><text x="555" y="86">E2E Runner</text>
+    <rect class="head" x="650" y="60" width="140" height="42" rx="6"/><text x="720" y="86">HIS API / Tenant</text>
+    <rect class="head" x="825" y="60" width="120" height="42" rx="6"/><text x="885" y="86">Quality Gate</text>
+    <rect class="head" x="980" y="60" width="100" height="42" rx="6"/><text x="1030" y="86">QA Lead</text>
+  </g>
+
+  <g class="life">
+    <path d="M90 102 V650"/>
+    <path d="M245 102 V650"/>
+    <path d="M400 102 V650"/>
+    <path d="M555 102 V650"/>
+    <path d="M720 102 V650"/>
+    <path d="M885 102 V650"/>
+    <path d="M1030 102 V650"/>
+  </g>
+
+  <g font-size="13">
+    <path class="msg" d="M90 145 H245"/><text x="100" y="137">abrir PR</text>
+    <path class="msg" d="M245 190 H400"/><text x="255" y="182">disparar pipeline</text>
+    <path class="msg" d="M400 235 H555"/><text x="410" y="227">ejecutar suite</text>
+    <path class="msg" d="M555 280 H720"/><text x="565" y="272">solicitar API + tenant</text>
+    <path class="ret" d="M720 325 H555"/><text x="565" y="317">respuestas HTTP y datos</text>
+    <path class="ret" d="M555 370 H400"/><text x="410" y="362">resultados y evidencias</text>
+    <path class="msg" d="M400 415 H885"/><text x="590" y="407">enviar métricas</text>
+    <path class="ret" d="M885 460 H400"/><text x="590" y="452" font-weight="bold">PASA o FALLA</text>
+    <path class="msg" d="M400 505 H245"/><text x="255" y="497">actualizar check</text>
+    <path class="ret" d="M245 550 H90"/><text x="100" y="542">estado del PR</text>
+    <path class="msg" d="M885 595 H1030"/><text x="920" y="587">revisar decisión</text>
+  </g>
+</svg>

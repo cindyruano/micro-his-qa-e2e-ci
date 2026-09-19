@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="650" viewBox="0 0 1250 650" style="background-color: #ffffff;">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202a; }
+    .title { font-size: 24px; font-weight: bold; fill: #17202a; }
+    .client { fill: #fef5e7; stroke: #ca6f1e; stroke-width: 2; }
+    .api { fill: #eaf2f8; stroke: #2874a6; stroke-width: 2; }
+    .qa { fill: #e8f8f5; stroke: #138d75; stroke-width: 2; }
+    .data { fill: #f5eef8; stroke: #7d3c98; stroke-width: 2; }
+    .ext { fill: #f8f9f9; stroke: #7b7d7d; stroke-width: 2; }
+    .component { fill: #ffffff; stroke: #566573; stroke-width: 1.5; }
+    .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .async { stroke: #7d3c98; stroke-width: 2; stroke-dasharray: 7 5; fill: none; marker-end: url(#arrowPurple); }
+    .label { font-size: 12px; fill: #34495e; font-weight: bold; }
+    .footer-note { font-size: 14px; fill: #17202a; font-weight: bold; }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#34495e"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#7d3c98"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="625" y="38" text-anchor="middle" class="title">ASII-25 - Arquitectura cliente-servidor y frontera QA</text>
+
+  <rect class="client" x="35" y="90" width="220" height="150" rx="10"/>
+  <text x="145" y="125" text-anchor="middle" font-size="18" font-weight="bold">Clientes</text>
+  <text x="145" y="160" text-anchor="middle" font-size="14">QA UI / GitHub Actions</text>
+  <text x="145" y="188" text-anchor="middle" font-size="14">Runner E2E / QA Lead</text>
+  <text x="145" y="216" text-anchor="middle" font-size="13">JWT + X-Tenant-ID</text>
+
+  <rect class="api" x="330" y="75" width="270" height="190" rx="10"/>
+  <text x="465" y="110" text-anchor="middle" font-size="18" font-weight="bold">HIS API REST</text>
+  <rect class="component" x="365" y="140" width="200" height="42" rx="5"/>
+  <text x="465" y="166" text-anchor="middle" font-size="14">Auth / Tenant / RBAC</text>
+  <rect class="component" x="365" y="205" width="200" height="42" rx="5"/>
+  <text x="465" y="231" text-anchor="middle" font-size="14">QA API v1</text>
+
+  <rect class="qa" x="675" y="75" width="290" height="190" rx="10"/>
+  <text x="820" y="110" text-anchor="middle" font-size="18" font-weight="bold">QA Execution Service</text>
+  <text x="820" y="140" text-anchor="middle" font-size="13">Frontera lógica candidata</text>
+  <rect class="component" x="715" y="165" width="210" height="42" rx="5"/>
+  <text x="820" y="191" text-anchor="middle" font-size="14">Runs / Quality Gates</text>
+  <rect class="component" x="715" y="220" width="210" height="30" rx="5"/>
+  <text x="820" y="241" text-anchor="middle" font-size="13">Correlation / Metrics</text>
+
+  <rect class="data" x="675" y="350" width="290" height="140" rx="10"/>
+  <text x="820" y="385" text-anchor="middle" font-size="18" font-weight="bold">Datos QA propios</text>
+  <text x="820" y="420" text-anchor="middle" font-size="14">Runs + auditoría</text>
+  <text x="820" y="448" text-anchor="middle" font-size="14">Evidencias con SHA-256</text>
+  <text x="820" y="476" text-anchor="middle" font-size="13">tenant_id / execution_id</text>
+
+  <rect class="ext" x="1030" y="100" width="180" height="110" rx="10"/>
+  <text x="1120" y="135" text-anchor="middle" font-size="16" font-weight="bold">HIS clínico</text>
+  <text x="1120" y="165" text-anchor="middle" font-size="13">Datos fuera de</text>
+  <text x="1120" y="185" text-anchor="middle" font-size="13">propiedad QA</text>
+
+  <rect class="ext" x="1030" y="350" width="180" height="110" rx="10"/>
+  <text x="1120" y="385" text-anchor="middle" font-size="16" font-weight="bold">Queue / Webhook</text>
+  <text x="1120" y="415" text-anchor="middle" font-size="13">Trabajos largos</text>
+  <text x="1120" y="435" text-anchor="middle" font-size="13">y artefactos</text>
+
+  <path class="arrow" d="M255 165 H330"/>
+  <path class="arrow" d="M600 165 H675"/>
+  <path class="arrow" d="M965 165 H1030"/>
+  <path class="arrow" d="M820 265 V350"/>
+  <path class="async" d="M965 405 H1030"/>
+
+  <text x="292" y="155" text-anchor="middle" class="label">REST síncrono</text>
+  <text x="637" y="155" text-anchor="middle" class="label">contrato interno</text>
+  <text x="997" y="155" text-anchor="middle" class="label">consulta autorizada</text>
+  <text x="835" y="315" class="label">PDO / repositorio</text>
+  <text x="995" y="390" text-anchor="middle" class="label">asíncrono</text>
+
+  <text x="625" y="590" text-anchor="middle" class="footer-note">Observabilidad: X-Correlation-ID, logs JSON, métricas p95, retries y timeouts</text>
+</svg>

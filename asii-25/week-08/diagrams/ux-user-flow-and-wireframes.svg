@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="760" viewBox="0 0 1250 760" style="background-color: #ffffff;">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202a; }
+    .title { font-size: 24px; font-weight: bold; fill: #17202a; }
+    .role { fill: #fef5e7; stroke: #ca6f1e; stroke-width: 2; }
+    .screen { fill: #eaf2f8; stroke: #2874a6; stroke-width: 2; }
+    .state { fill: #e8f8f5; stroke: #138d75; stroke-width: 2; }
+    .secure { fill: #f5eef8; stroke: #7d3c98; stroke-width: 2; }
+    .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#a); }
+    .dash { stroke: #7d3c98; stroke-width: 2; stroke-dasharray: 7 5; fill: none; marker-end: url(#p); }
+    .footer-note { font-size: 14px; fill: #17202a; font-weight: bold; }
+  </style>
+
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#34495e"/>
+    </marker>
+    <marker id="p" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#7d3c98"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="625" y="38" text-anchor="middle" class="title">ASII-25 - UX del flujo QA</text>
+
+  <rect class="role" x="35" y="90" width="220" height="125" rx="10"/>
+  <text x="145" y="125" text-anchor="middle" font-size="18" font-weight="bold">QA Lead</text>
+  <text x="145" y="157" text-anchor="middle" font-size="13">Planifica y confirma</text>
+  <text x="145" y="181" text-anchor="middle" font-size="13">Quality Gate</text>
+
+  <rect class="role" x="35" y="290" width="220" height="125" rx="10"/>
+  <text x="145" y="325" text-anchor="middle" font-size="18" font-weight="bold">Developer</text>
+  <text x="145" y="357" text-anchor="middle" font-size="13">Consulta runs</text>
+  <text x="145" y="381" text-anchor="middle" font-size="13">Verifica evidencia</text>
+
+  <rect class="role" x="35" y="490" width="220" height="125" rx="10"/>
+  <text x="145" y="525" text-anchor="middle" font-size="18" font-weight="bold">CI Runner</text>
+  <text x="145" y="557" text-anchor="middle" font-size="13">Webhook y retries</text>
+  <text x="145" y="581" text-anchor="middle" font-size="13">Bloquea despliegue</text>
+
+  <rect class="screen" x="335" y="90" width="270" height="125" rx="10"/>
+  <text x="470" y="125" text-anchor="middle" font-size="18" font-weight="bold">Dashboard</text>
+  <text x="470" y="157" text-anchor="middle" font-size="13">Runs / tenant / estados</text>
+  <text x="470" y="181" text-anchor="middle" font-size="13">Empty / Loading / Success</text>
+
+  <rect class="screen" x="335" y="290" width="270" height="125" rx="10"/>
+  <text x="470" y="325" text-anchor="middle" font-size="18" font-weight="bold">Detalle y evidencia</text>
+  <text x="470" y="357" text-anchor="middle" font-size="13">logs, zip/tar.gz y hash</text>
+  <text x="470" y="381" text-anchor="middle" font-size="13">pending / ready / invalid</text>
+
+  <rect class="screen" x="335" y="490" width="270" height="125" rx="10"/>
+  <text x="470" y="525" text-anchor="middle" font-size="18" font-weight="bold">Quality Gate</text>
+  <text x="470" y="557" text-anchor="middle" font-size="13">p95, cobertura, fallos</text>
+  <text x="470" y="581" text-anchor="middle" font-size="13">PASS / FAIL / retry</text>
+
+  <rect class="state" x="710" y="90" width="220" height="125" rx="10"/>
+  <text x="820" y="125" text-anchor="middle" font-size="18" font-weight="bold">Interacción</text>
+  <text x="820" y="157" text-anchor="middle" font-size="13">validar / confirmar</text>
+  <text x="820" y="181" text-anchor="middle" font-size="13">feedback recuperable</text>
+
+  <rect class="secure" x="710" y="290" width="220" height="125" rx="10"/>
+  <text x="820" y="325" text-anchor="middle" font-size="18" font-weight="bold">Protección</text>
+  <text x="820" y="357" text-anchor="middle" font-size="13">JWT y tenant enmascarados</text>
+  <text x="820" y="381" text-anchor="middle" font-size="13">SHA-256 verificable</text>
+
+  <rect class="state" x="710" y="490" width="220" height="125" rx="10"/>
+  <text x="820" y="525" text-anchor="middle" font-size="18" font-weight="bold">Recuperación</text>
+  <text x="820" y="557" text-anchor="middle" font-size="13">Retry / timeout / renovar</text>
+  <text x="820" y="581" text-anchor="middle" font-size="13">sin duplicar ejecución</text>
+
+  <path class="arrow" d="M255 152 H335"/>
+  <path class="arrow" d="M255 352 H335"/>
+  <path class="arrow" d="M255 552 H335"/>
+  <path class="arrow" d="M605 152 H710"/>
+  <path class="arrow" d="M605 352 H710"/>
+  <path class="arrow" d="M605 552 H710"/>
+
+  <path class="dash" d="M820 215 V290"/>
+  <path class="dash" d="M820 415 V490"/>
+
+  <text x="625" y="700" text-anchor="middle" class="footer-note">Wireframes: dashboard · planificación · evidencia · Quality Gate · estados recuperables</text>
+</svg>
